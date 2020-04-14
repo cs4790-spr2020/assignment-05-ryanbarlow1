@@ -1,0 +1,14 @@
+@page
+@model BlabberApp.Client.UsersModel
+@using BlabberApp.Domain
+@using BlabberApp.Services
+@inject IUserService UserService
+@{
+    ViewData["Title"] = "Users";
+}
+<h1>@ViewData["Title"]</h1>
+<p>
+    @foreach (@User user in @UserService.GetAll()) {
+        <li>@user.Email.ToString()</li>
+    }
+</p>
